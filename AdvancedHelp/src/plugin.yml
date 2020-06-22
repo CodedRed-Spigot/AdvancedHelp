@@ -1,0 +1,25 @@
+name: AdvancedHelp
+main: me.codedred.advancedhelp.Main
+ # keeping author as 'Cmaaxx' for Metrix purposes.
+author: Cmaaxx
+authors: [CodedRed, Cmaaxx]
+version: 1.12
+api-version: 1.13
+softdepend: [PlaceholdersAPI, HeadDatabase, PlaceholderAPI]
+loadbefore: [Essentials, CMI, EssentialsX]
+
+commands:
+  help:
+    description: Use /help to see the help section.
+    usage: /<command>
+    permission: help.use
+    aliases: ehelp
+  ?:
+    description: Use /? to see the help section.
+    usage: /<command>
+    permission: help.use
+  ahelp:
+    description: Admin help for AdvancedHelp.
+    usage: /<command>
+    permission: help.reload
+    aliases: advancedhelp

@@ -1,0 +1,26 @@
+messages:
+  category-not-found: '&bCategory not found!'
+  page-not-found: '&bPage not found!'
+  no-permission: '&cYou do not have permission to do this!'
+prefix: '&7[&bAdvancedHelp&7]'
+dateFormat: HH:mm:ss dd-MM-yyyy
+gui:
+  enabled: true
+  hide-attributes: true
+  close-page:
+    enabled: true
+    item-name: '&c&lClose'
+    item-material: BARRIER
+    enchanted: false
+    lore:
+    - '&c&oClick to close!'
+  home-page:
+    enabled: true
+    item-name: '&c&lHome Page'
+    item-material: BARRIER
+    enchanted: false
+    lore:
+    - '&c&oClick to go back!'
+cmd-priority:
+  gui: true
+refresh-guis: false
