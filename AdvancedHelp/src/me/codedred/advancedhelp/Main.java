@@ -68,6 +68,8 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 		registerMetrics();
 		registerEvents();
 		registerCommands();
+		
+		getServer().getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "[AdvancedHelp] " + ChatColor.WHITE + "Successfully Enabled!");
 	}
 	
 	@Override

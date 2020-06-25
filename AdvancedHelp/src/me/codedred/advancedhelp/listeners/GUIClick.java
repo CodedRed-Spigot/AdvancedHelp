@@ -32,10 +32,11 @@ public class GUIClick implements Listener {
 			}
 		}
 		if (!plugin.directory.inventoryViewer.hasInventories(((Player) event.getWhoClicked()).getName())) return;
-		
+		if (!plugin.directory.inventoryViewer.getInventories(((Player) event.getWhoClicked()).getName()).contains(event.getInventory()))
+			return;
         Player player = (Player) event.getWhoClicked();
         event.setCancelled(true);
-        
+
 		if (event.getView().getType() != InventoryType.PLAYER) {
 	        // Get inventory name
 	        String invID = plugin.directory.getNameID(player, event.getClickedInventory());

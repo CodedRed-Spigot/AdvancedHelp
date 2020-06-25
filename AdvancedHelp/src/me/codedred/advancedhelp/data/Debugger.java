@@ -1,5 +1,6 @@
 package me.codedred.advancedhelp.data;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +22,10 @@ public class Debugger {
 		FileConfiguration PAGES = plugin.getPages();
 		FileConfiguration GROUP = plugin.getCategories();
 		FileConfiguration CONFIG = plugin.getConfig();
-		//FileConfiguration GUI = plugin.getGUI();
+		FileConfiguration GUI = plugin.getGUI();
 		
-		if (!PAGES.contains("pages")) {
+		File helpFile = new File(plugin.getDataFolder(), "help.yml");
+		if (helpFile.length() == 0) {
 			PAGES.createSection("pages.1");
 			List<String> p = new ArrayList<String>();
 			p.add("&bAdd unlimited lines and pages!");
@@ -32,7 +34,8 @@ public class Debugger {
 			plugin.dataManager.pages.saveConfig();
 			
 		}
-		if (!GROUP.contains("categories")) {
+		File catFile = new File(plugin.getDataFolder(), "categories.yml");
+		if (catFile.length() == 0) {
 			GROUP.createSection("categories");
 			List<String> c = new ArrayList<String>();
 			c.add("&bCustomize categories anyway you would like!");
@@ -113,8 +116,9 @@ public class Debugger {
 			
 		}
 		// gui.yml
-		/*if (!GUI.contains("gui")) {
-			GUI.set("gui.main-page.title", "&6&l**         &e&lHelp GUI       &6&l**");
+		File guiFile = new File(plugin.getDataFolder(), "gui.yml");
+		if (guiFile.length() == 0) {
+			GUI.set("gui.main-page.title", "&e&lHelp GUI");
 			GUI.set("gui.main-page.slots", 18);
 			GUI.set("gui.main-page.close-button", 14);
 			GUI.set("gui.main-page.items.1.item-name", "&6&lFactions");
@@ -271,7 +275,7 @@ public class Debugger {
 			GUI.set("gui.main-page.items.3.value", "economy");
 			
 			plugin.dataManager.gui.saveConfig();
-		}*/
+		}
 
 	}    
 	// old old old 3+ year old configuration options. 
