@@ -39,7 +39,7 @@ public class AdminGUIClick implements Listener {
 	        	if (name.equalsIgnoreCase("Join Discord")) {
 	        		p.closeInventory();
 	        		p.sendMessage(plugin.format("&9Join our discord for help and more!"));
-	        		p.sendMessage(plugin.format("&3https://discord.gg/gqwtqX3"));
+	        		p.sendMessage(plugin.format("&3https://discord.gg/7A9UA2n"));
 	        		p.updateInventory();
 	        		return;
 	        	}

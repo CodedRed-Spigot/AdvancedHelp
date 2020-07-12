@@ -2,8 +2,8 @@ name: AdvancedHelp
 main: me.codedred.advancedhelp.Main
  # keeping author as 'Cmaaxx' for Metrix purposes.
 author: Cmaaxx
-authors: [CodedRed, Cmaaxx]
-version: 1.12
+authors: [CodedRed]
+version: 1.12.2
 api-version: 1.13
 softdepend: [PlaceholdersAPI, HeadDatabase, PlaceholderAPI]
 loadbefore: [Essentials, CMI, EssentialsX]
