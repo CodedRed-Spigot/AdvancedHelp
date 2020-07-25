@@ -5,8 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -30,6 +28,7 @@ import me.codedred.advancedhelp.listeners.AdminGUIClick;
 import me.codedred.advancedhelp.listeners.GUIClick;
 import me.codedred.advancedhelp.listeners.HelpGUIClick;
 import me.codedred.advancedhelp.models.Directory;
+import me.codedred.advancedhelp.utils.HexUtil;
 import net.md_5.bungee.api.ChatColor;
 
 public class Main extends JavaPlugin implements PluginMessageListener {
@@ -38,7 +37,6 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 	public Directory directory;
 	public static String dateFormat;
 	public List<String> bungeeServers = new ArrayList<String>();
-	private final Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
 	
 	@Override
 	public void onEnable() {
@@ -178,13 +176,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 	
 	public String format(String msg) {
 		if (Bukkit.getVersion().contains("1.16")) {
-			//hex colors
-			Matcher match = pattern.matcher(msg);
-			while (match.find()) {
-				String color = msg.substring(match.start(), match.end());
-				msg = msg.replace(color, ChatColor.of(color) + "");
-				match = pattern.matcher(msg);
-			}
+			msg = HexUtil.hex(msg);
 		}
 		return ChatColor.translateAlternateColorCodes('&', msg);
 	}
