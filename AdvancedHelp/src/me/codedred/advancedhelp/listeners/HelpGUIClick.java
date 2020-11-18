@@ -115,7 +115,26 @@ public class HelpGUIClick implements Listener {
                     	player.updateInventory();
                     	return;
                     }
-                    
+                	/**
+                	 * MESSAGE
+                	 */
+                	else if (type.equalsIgnoreCase("MESSAGE")) {
+                		if (GUI.contains("gui." + event.getInventoryName() + ".items." + i + ".value")) {
+                			for (String m : GUI.getStringList("gui." + event.getInventoryName() + ".items." + i + ".value")) {
+                				if (plugin.hasPAPI())
+                					m = PlaceholdersUtil.setPlaceholders(player, m);
+                				if (m.indexOf("{\"text\":") != -1) {
+                					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  m)
+           								 .replace("%player%", player.getName())); 
+                				} else {
+                					player.sendMessage(plugin.format(m.replace("%player%", player.getName())));
+                				}
+                			}
+                			player.closeInventory();
+                			player.updateInventory();
+                		}
+                		return;
+                	}
                     /**
                      * HELP-PAGE
                      */

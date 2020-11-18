@@ -31,13 +31,17 @@ public class PlaceholdersUtil {
 	public static ItemStack translatePlaceholders(ItemStack item, Player player) {
 		
 		ItemMeta meta = item.getItemMeta();
-		String papiName = item.getItemMeta().getDisplayName();
-		papiName = PlaceholderAPI.setPlaceholders(player, papiName);
-		meta.setDisplayName(papiName);
+		if (item.getItemMeta().hasDisplayName()) {
+			String papiName = item.getItemMeta().getDisplayName();
+			papiName = PlaceholderAPI.setPlaceholders(player, papiName);
+			meta.setDisplayName(papiName);
+		}
 		
-		List<String> papiLore = item.getItemMeta().getLore();
-		papiLore = PlaceholderAPI.setPlaceholders(player, papiLore);
-		meta.setLore(papiLore);
+		if (item.getItemMeta().hasLore()) {
+			List<String> papiLore = item.getItemMeta().getLore();
+			papiLore = PlaceholderAPI.setPlaceholders(player, papiLore);
+			meta.setLore(papiLore);	
+		}
 		item.setItemMeta(meta);
 		
 		return item;
