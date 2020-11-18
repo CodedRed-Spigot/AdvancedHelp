@@ -33,7 +33,7 @@ public class HelpGUIClick implements Listener {
 		
 		if (plugin.getConfig().getBoolean("gui.close-page.enabled")) {
             if(fixTitle("gui.close-page.item-name", player)
-        			.contains(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
+        			.equalsIgnoreCase(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
             	player.closeInventory();
             	player.updateInventory();
             	return;
@@ -41,7 +41,7 @@ public class HelpGUIClick implements Listener {
         }
         if (plugin.getConfig().getBoolean("gui.home-page.enabled")) {
             if(fixTitle("gui.home-page.item-name", player)
-        			.contains(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
+        			.equalsIgnoreCase(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
             	Inventory f = plugin.directory.getMainInventory(player.getName());
             	player.updateInventory();
             	player.openInventory(f);
