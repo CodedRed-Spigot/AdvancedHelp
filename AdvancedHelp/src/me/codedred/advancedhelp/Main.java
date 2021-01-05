@@ -91,7 +91,7 @@ public class Main extends JavaPlugin implements PluginMessageListener {
 			String[] serverList = in.readUTF().split(", ");
 		    for (String srv : serverList) {
 				bungeeServers.add(srv);
-		    	System.out.print(srv);
+		    	//System.out.print(srv);
 		    }
 		}
 	}

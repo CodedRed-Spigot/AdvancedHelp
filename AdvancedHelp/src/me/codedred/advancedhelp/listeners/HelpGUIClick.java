@@ -3,6 +3,7 @@ package me.codedred.advancedhelp.listeners;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -33,7 +34,7 @@ public class HelpGUIClick implements Listener {
 		
 		if (plugin.getConfig().getBoolean("gui.close-page.enabled")) {
             if(fixTitle("gui.close-page.item-name", player)
-        			.equalsIgnoreCase(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
+        			.contains(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
             	player.closeInventory();
             	player.updateInventory();
             	return;
@@ -41,7 +42,7 @@ public class HelpGUIClick implements Listener {
         }
         if (plugin.getConfig().getBoolean("gui.home-page.enabled")) {
             if(fixTitle("gui.home-page.item-name", player)
-        			.equalsIgnoreCase(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
+        			.contains(ChatColor.stripColor(event.getCurrentItem().getItemMeta().getDisplayName())) ){
             	Inventory f = plugin.directory.getMainInventory(player.getName());
             	player.updateInventory();
             	player.openInventory(f);
@@ -323,12 +324,8 @@ public class HelpGUIClick implements Listener {
 			msg = PlaceholdersUtil.setPlaceholders(player, plugin.getConfig().getString(location));
 		else
 			msg = plugin.getConfig().getString(location);
-		return msg.replace("&1", "").replace("&4", "").replace("&c", "")
-       			.replace("&6", "").replace("&e", "").replace("&2", "")
-    			.replace("&a",  "").replace("&b", "").replace("&3", "")
-    			.replace("&9", "").replace("&d", "").replace("&5", "")
-    			.replace("&f", "").replace("&0", "").replace("&7", "")
-    			.replace("&8", "").replace("&l", "").replace("&m", "").replace("&o", "")
-    			.replace("&k", "").replace("%player%", player.getName());
+		msg = ChatColor.stripColor(msg);
+		msg = StringUtils.replace(msg, "%player%", player.getName());
+		return msg;
 	}
 }

@@ -10,18 +10,23 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import me.codedred.advancedhelp.Main;
 import me.codedred.advancedhelp.menus.Menu;
 import me.codedred.advancedhelp.utils.PlaceholdersUtil;
 
-public class Help implements CommandExecutor {
+public class Help implements CommandExecutor, Listener {
 	
 	private Main plugin;
 	private Menu menu;
 	public Help(Main plugin) {
 		this.plugin = plugin;
 		this.menu = new Menu(plugin);
+		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 	
 	
@@ -40,6 +45,7 @@ public class Help implements CommandExecutor {
 		if ((label.equalsIgnoreCase("help")) || (label.equalsIgnoreCase("ehelp"))) {
 			if (!sender.hasPermission("help.use")) {
 				sender.sendMessage(plugin.format(plugin.getConfig().getString("prefix") + " " + plugin.getConfig().getString("messages.no-permission")));
+				return true;
 			}
 			Date now = new Date();
 			SimpleDateFormat format = new SimpleDateFormat(plugin.getConfig().getString("dateFormat"));
@@ -218,5 +224,13 @@ public class Help implements CommandExecutor {
 		}
 		return false;
 	} 
+	
+	@EventHandler(priority = EventPriority.MONITOR)
+	public void onPreCommand(PlayerCommandPreprocessEvent e) {
+		if (e.getMessage().startsWith("/help"))
+			e.setMessage(e.getMessage().replace("/help", "/ehelp"));
+		if (e.getMessage().startsWith("/?"))
+			e.setMessage(e.getMessage().replace("/?", "/ehelp"));
+	}
 	
 }

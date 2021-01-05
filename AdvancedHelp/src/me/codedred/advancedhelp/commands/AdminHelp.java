@@ -73,7 +73,7 @@ public class AdminHelp implements CommandExecutor {
 					plugin.collectCategories();
 					plugin.collectGUIs();
 					sender.sendMessage(plugin.format("&a&lConfigurations successfully debugged!"));
-					sender.sendMessage(plugin.format("&c&oIf problems are still occuring, check out the spigot site for default config info! &bhttps://tinyurl.com/y7jeux3a"));
+					sender.sendMessage(plugin.format("&c&oIf problems are still occurring, check out the spigot site for default config info! &bhttps://tinyurl.com/y7jeux3a"));
 					return true;
 				}
 				sender.sendMessage(ChatColor.AQUA + "" + ChatColor.STRIKETHROUGH + "========[" + ChatColor.RESET + "" + ChatColor.GOLD + "" +
