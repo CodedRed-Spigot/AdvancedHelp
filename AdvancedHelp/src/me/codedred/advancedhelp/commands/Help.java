@@ -229,7 +229,7 @@ public class Help implements CommandExecutor, Listener {
 	public void onPreCommand(PlayerCommandPreprocessEvent e) {
 		if (e.getMessage().startsWith("/help"))
 			e.setMessage(e.getMessage().replace("/help", "/ehelp"));
-		if (e.getMessage().startsWith("/?"))
+		if (e.getMessage().startsWith("/?") && !e.getPlayer().hasPermission("help.override"))
 			e.setMessage(e.getMessage().replace("/?", "/ehelp"));
 	}
 	
