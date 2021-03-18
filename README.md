@@ -22,7 +22,7 @@
     <a href="https://github.com/CodedRed-Spigot/AdvancedHelp"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/CodedRed-Spigot/AdvancedHelp">View Demo</a>
+    <a href="https://www.spigotmc.org/resources/advancedhelp-custom-help-pages-with-gui.44478/">View Demo</a>
     ·
     <a href="https://github.com/CodedRed-Spigot/AdvancedHelp/issues">Report Bug</a>
     ·
@@ -74,7 +74,7 @@ AdvancedHelp is a total customizable '/help' command for your server! Best Custo
 ## Usage
 
 More info coming soon!
-_For more examples, please refer to the [Documentation](https://www.spigotmc.org/resources/advancedhelp-custom-help-pages-with-gui.44478/)_
+_Please refer to the [Documentation](https://www.spigotmc.org/resources/advancedhelp-custom-help-pages-with-gui.44478/)_
 
 
 
