@@ -20,9 +20,7 @@ public class ListViewer {
 	
 	
 	public boolean hasList(String name) {
-		if (list.containsKey(name))
-			return true;
-		return false;
+		return list.containsKey(name);
 	}
 	
 	public void clear() {

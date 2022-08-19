@@ -22,9 +22,7 @@ public class InventoryViewer {
 	
 	
 	public boolean hasInventories(String name) {
-		if (menus.containsKey(name))
-			return true;
-		return false;
+		return menus.containsKey(name);
 	}
 	
 	

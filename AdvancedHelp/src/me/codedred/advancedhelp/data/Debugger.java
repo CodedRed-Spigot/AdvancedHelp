@@ -7,13 +7,13 @@ import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 
 
 public class Debugger {
 
-	private Main plugin;
-	public Debugger(Main plugin) {
+	private AdvancedHelp plugin;
+	public Debugger(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 

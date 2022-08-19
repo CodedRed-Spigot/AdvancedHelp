@@ -6,19 +6,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.events.AdminGUIEvent;
 
 public class AdminGUIClick implements Listener {
 
-	private Main plugin;
-	public AdminGUIClick(Main plugin) {
+	private final AdvancedHelp plugin;
+	public AdminGUIClick(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 	
 	 @EventHandler
 	    public void onAdminClick(AdminGUIEvent event){
-	        Player p = (Player) event.getPlayer();
+	        Player p = event.getPlayer();
 	        
 
 	        	event.getPlayer().closeInventory();
@@ -50,10 +50,7 @@ public class AdminGUIClick implements Listener {
 	        		p.updateInventory();
 	        		return;
 	        	}
-	        	if (name.equalsIgnoreCase("AdvancedHelp")) {
-	        	} 	
-	        	p.updateInventory();
-	        	return;
-	    }
+		 p.updateInventory();
+	 }
 	
 }

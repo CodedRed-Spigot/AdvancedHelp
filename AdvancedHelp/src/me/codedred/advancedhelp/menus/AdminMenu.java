@@ -9,13 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.utils.ItemUtil;
 
 public class AdminMenu {
 	
-	private Main plugin;
-	public AdminMenu(Main plugin) {
+	private final AdvancedHelp plugin;
+	public AdminMenu(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -72,7 +72,7 @@ public class AdminMenu {
 	        
 	        
 	        // Cosmetic
-	        int slots[] = {0,1,2,6,7};
+	        int[] slots = {0,1,2,6,7};
 	        for (int s : slots) {
 	        	ItemStack cosmetic = ItemUtil.createItem("LIGHT_BLUE_STAINED_GLASS_PANE", player);
 	        	cosmetic = ItemUtil.addDisplayName(cosmetic, "&bAdvancedHelp", player);

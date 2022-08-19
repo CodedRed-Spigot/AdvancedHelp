@@ -14,13 +14,13 @@ public class Directory {
 	public ListViewer listViewer;
 	
 	public Directory() {
-		this.inventoryViewer = new InventoryViewer();
-		this.listViewer = new ListViewer();
+		inventoryViewer = new InventoryViewer();
+		listViewer = new ListViewer();
 	}
 	
 	public void clearScenes() {
-		this.inventoryViewer.clear();
-		this.listViewer.clear();
+		inventoryViewer.clear();
+		listViewer.clear();
 	}
 	
 	public List<String> getCategories() {
@@ -32,23 +32,19 @@ public class Directory {
 	}
 	
 	public Inventory getAdminInventory() {
-		return this.inventoryViewer.getInventories("admin-inv").get(0);
+		return inventoryViewer.getInventories("admin-inv").get(0);
 	}
 	
 	public Inventory getMainInventory(String player) {
-		return this.inventoryViewer.getInventories(player).get(0);
+		return inventoryViewer.getInventories(player).get(0);
 	}
 	
 	public boolean hasAdminInventory() {
-		if (this.inventoryViewer.hasInventories("admin-inv"))
-			return true;
-		return false;
+		return inventoryViewer.hasInventories("admin-inv");
 	}
 	
 	public boolean hasMainInventory(String player) {
-		if (this.inventoryViewer.hasInventories(player))
-			return true;
-		return false;
+		return inventoryViewer.hasInventories(player);
 	}
 	
 	

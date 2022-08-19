@@ -6,12 +6,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.apache.commons.lang.StringUtils;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 
 public class QuestionMark implements CommandExecutor{
 
-	private Main plugin;
-	public QuestionMark(Main plugin) {
+	private final AdvancedHelp plugin;
+	public QuestionMark(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 	public boolean onCommand(CommandSender sender, Command cmd, String cmdL, String[] args)

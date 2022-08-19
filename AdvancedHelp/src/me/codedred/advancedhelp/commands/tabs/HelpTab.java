@@ -7,16 +7,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 
 public class HelpTab implements TabCompleter {
 
-	private List<String> categories = new ArrayList<String>();
-	private List<String> privateCategories = new ArrayList<String>();
-	private List<String> adminArgs = new ArrayList<String>();
+	private List<String> categories = new ArrayList<>();
+	private final List<String> privateCategories = new ArrayList<>();
+	private final List<String> adminArgs = new ArrayList<>();
 
-	private Main plugin;
-	public HelpTab(Main plugin) {
+	private final AdvancedHelp plugin;
+	public HelpTab(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 
@@ -24,12 +24,12 @@ public class HelpTab implements TabCompleter {
 		if (cmd.getName().equalsIgnoreCase("help") || cmd.getName().equalsIgnoreCase("ehelp")
 				|| cmd.getName().equalsIgnoreCase("?")) {
 			
-			List<String> finalOne = new ArrayList<String>();
-			List<String> pages = new ArrayList<String>();
+			List<String> finalOne = new ArrayList<>();
+			List<String> pages = new ArrayList<>();
 			
 			if (categories.isEmpty()) {
 				categories = plugin.directory.listViewer.getList("categories");
-				this.getDefaultCaddys(categories);
+				getDefaultCaddys(categories);
 			}
 			
 			if (args.length == 1) {	
@@ -66,7 +66,7 @@ public class HelpTab implements TabCompleter {
 				adminArgs.add("info");
 			}
 
-			List<String> finalOne = new ArrayList<String>();
+			List<String> finalOne = new ArrayList<>();
 			if (args.length == 1) {	
 				for (String s : adminArgs) {
 					if (s.toLowerCase().startsWith(args[0].toLowerCase())) {

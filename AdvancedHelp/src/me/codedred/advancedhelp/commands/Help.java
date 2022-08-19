@@ -15,17 +15,17 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.menus.Menu;
 import me.codedred.advancedhelp.utils.PlaceholdersUtil;
 
 public class Help implements CommandExecutor, Listener {
 	
-	private Main plugin;
-	private Menu menu;
-	public Help(Main plugin) {
+	private final AdvancedHelp plugin;
+	private final Menu menu;
+	public Help(AdvancedHelp plugin) {
 		this.plugin = plugin;
-		this.menu = new Menu(plugin);
+		menu = new Menu(plugin);
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 	
@@ -78,7 +78,7 @@ public class Help implements CommandExecutor, Listener {
 						Player player = (Player) sender;
 						msg = PlaceholdersUtil.setPlaceholders(player, msg);
 					}
-					 if (msg.indexOf("{\"text\":") != -1) {
+					 if (msg.contains("{\"text\":")) {
 						 if (sender instanceof Player) {
 						 Player player = (Player) sender;
 						 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  msg)
@@ -86,7 +86,7 @@ public class Help implements CommandExecutor, Listener {
 						 } else
 							 sender.sendMessage("This message contains JSON text that cannot be sent to the console.");
 					 }
-					 if (msg.indexOf("{\"text\":") == -1)
+					 if (!msg.contains("{\"text\":"))
 						 sender.sendMessage(plugin.format(msg).replace("%player%", sender.getName()).replace("%time%", format.format(now)));  
 				}
 				return true;
@@ -106,7 +106,7 @@ public class Help implements CommandExecutor, Listener {
 							Player player = (Player) sender;
 							msg = PlaceholdersUtil.setPlaceholders(player, msg);
 						}
-						 if (msg.indexOf("{\"text\":") != -1) {
+						 if (msg.contains("{\"text\":")) {
 							 if (sender instanceof Player) {
 							 Player player = (Player) sender;
 							 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  msg)
@@ -114,7 +114,7 @@ public class Help implements CommandExecutor, Listener {
 							 } else
 								 sender.sendMessage("This message contains JSON text that cannot be sent to the console.");
 						 }
-						 if (msg.indexOf("{\"text\":") == -1)
+						 if (!msg.contains("{\"text\":"))
 							 sender.sendMessage(plugin.format(msg).replace("%player%", sender.getName()).replace("%time%", format.format(now))); 
 					}
 					return true;
@@ -166,7 +166,7 @@ public class Help implements CommandExecutor, Listener {
 						Player player = (Player) sender;
 						msg = PlaceholdersUtil.setPlaceholders(player, msg);
 					}
-					 if (msg.indexOf("{\"text\":") != -1) {
+					 if (msg.contains("{\"text\":")) {
 						 if (sender instanceof Player) {
 						 Player player = (Player) sender;
 						 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  msg)
@@ -174,7 +174,7 @@ public class Help implements CommandExecutor, Listener {
 						 } else
 							 sender.sendMessage("This message contains JSON text that cannot be sent to the console.");
 					 }
-					 if (msg.indexOf("{\"text\":") == -1)
+					 if (!msg.contains("{\"text\":"))
 						 sender.sendMessage(plugin.format(msg).replace("%player%", sender.getName()).replace("%time%", format.format(now))); 
 				}
 				return true;
@@ -204,7 +204,7 @@ public class Help implements CommandExecutor, Listener {
 							Player player = (Player) sender;
 							msg = PlaceholdersUtil.setPlaceholders(player, msg);
 						}
-						 if (msg.indexOf("{\"text\":") != -1) {
+						 if (msg.contains("{\"text\":")) {
 							 if (sender instanceof Player) {
 							 Player player = (Player) sender;
 							 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  msg)
@@ -212,7 +212,7 @@ public class Help implements CommandExecutor, Listener {
 							 } else
 								 sender.sendMessage("This message contains JSON text that cannot be sent to the console.");
 						 }
-						 if (msg.indexOf("{\"text\":") == -1)
+						 if (!msg.contains("{\"text\":"))
 							 sender.sendMessage(plugin.format(msg).replace("%player%", sender.getName()).replace("%time%", format.format(now))); 
 					}
 					return true;

@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.enums.Types;
 import net.md_5.bungee.api.ChatColor;
 
@@ -62,7 +62,7 @@ public class ItemUtil {
 	 */
 	public static ItemStack addDisplayName(ItemStack item, String name, Player player) {
 		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName(format(name.replace("%player%", player.getName()).replace("%time%", Main.dateFormat)));
+		meta.setDisplayName(format(name.replace("%player%", player.getName()).replace("%time%", AdvancedHelp.dateFormat)));
 		item.setItemMeta(meta);
 		return item;
 	}
@@ -78,7 +78,7 @@ public class ItemUtil {
 	public static ItemStack addLore(ItemStack item, List<String> lore, Player player) {
 		List<String> updatedLore = new ArrayList<String>();
 		for (String l : lore) {
-			updatedLore.add(format(l.replace("%player%", player.getName()).replace("%time%", Main.dateFormat)));
+			updatedLore.add(format(l.replace("%player%", player.getName()).replace("%time%", AdvancedHelp.dateFormat)));
 		}
 		ItemMeta meta = item.getItemMeta();
 		meta.setLore(updatedLore);

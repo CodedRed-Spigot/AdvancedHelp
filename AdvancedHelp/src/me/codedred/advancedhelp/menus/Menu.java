@@ -9,14 +9,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.utils.ItemUtil;
 import me.codedred.advancedhelp.utils.PlaceholdersUtil;
 
 public class Menu {
 
-	private Main plugin;
-	public Menu(Main plugin) {
+	private final AdvancedHelp plugin;
+	public Menu(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 			

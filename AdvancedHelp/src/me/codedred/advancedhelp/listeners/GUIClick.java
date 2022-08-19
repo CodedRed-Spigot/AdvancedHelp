@@ -7,14 +7,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.events.AdminGUIEvent;
 import me.codedred.advancedhelp.events.HelpGUIEvent;
 
 public class GUIClick implements Listener {
 
-	private Main plugin;
-	public GUIClick(Main plugin) {
+	private final AdvancedHelp plugin;
+	public GUIClick(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 	

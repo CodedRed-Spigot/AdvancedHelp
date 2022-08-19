@@ -22,7 +22,7 @@ public class HelpGUIEvent extends Event implements Cancellable {
 	}
 
     public boolean isCancelled() {
-        return this.isCancelled;
+        return isCancelled;
     }
 
     public void setCancelled(boolean isCancelled) {
@@ -40,7 +40,7 @@ public class HelpGUIEvent extends Event implements Cancellable {
     }
     
     public Player getPlayer() {
-        return this.player;
+        return player;
     }
     
     public Inventory getInventory() {

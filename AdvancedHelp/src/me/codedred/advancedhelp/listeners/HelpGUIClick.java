@@ -15,14 +15,14 @@ import org.bukkit.inventory.Inventory;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 
-import me.codedred.advancedhelp.Main;
+import me.codedred.advancedhelp.AdvancedHelp;
 import me.codedred.advancedhelp.events.HelpGUIEvent;
 import me.codedred.advancedhelp.utils.PlaceholdersUtil;
 
 public class HelpGUIClick implements Listener {
 	
-	private Main plugin;
-	public HelpGUIClick(Main plugin) {
+	private final AdvancedHelp plugin;
+	public HelpGUIClick(AdvancedHelp plugin) {
 		this.plugin = plugin;
 	}
 	
@@ -52,7 +52,7 @@ public class HelpGUIClick implements Listener {
         
        // different pathway buttons
         int slot = 99;
-        List<Integer> slots = new ArrayList<Integer>();
+        List<Integer> slots = new ArrayList<>();
         
         
         for (String i : GUI.getConfigurationSection("gui." + event.getInventoryName() + ".items").getKeys(false)) {
@@ -124,7 +124,7 @@ public class HelpGUIClick implements Listener {
                 			for (String m : GUI.getStringList("gui." + event.getInventoryName() + ".items." + i + ".value")) {
                 				if (plugin.hasPAPI())
                 					m = PlaceholdersUtil.setPlaceholders(player, m);
-                				if (m.indexOf("{\"text\":") != -1) {
+                				if (m.contains("{\"text\":")) {
                 					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ("tellraw " + player.getName() + " " +  m)
            								 .replace("%player%", player.getName())); 
                 				} else {
@@ -276,7 +276,7 @@ public class HelpGUIClick implements Listener {
 		if (plugin.getGUI().contains(location + ".value")) {
 			gui = plugin.getGUI().getString(location + ".value");
 		}
-		if (isGUI(gui) == false) {
+		if (!isGUI(gui)) {
 			gui = "main-page";
 		}
 		return gui;
